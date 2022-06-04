@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+    #container {
+      display: flex;
+    }
+    #formSpace {
+      width: 50%;
+    }
+    #Warning {
+      font-weight: bold;
+      color: red;
+    }
+    #strokeChance {
+      font-weight: bold;
+    }
+		.aligned_form {
+/*  			display: table-column;
+  			flex-flow: column wrap;
+ 	 		align-content: flex-start;
+  			height: 75px;*/
+  			align-content: flex-start;
+  			border: groove;
+  			padding: 20px;
+		}
+    .resultSpace {
+        border: groove;
+        padding: 20px;
+        width: 50%;
+    }
+    .fieldName {
+      font-weight: bold;
+    }
+		input {
+  			/*height: 25px;*/
+  			/*padding: 5px;*/
+  			box-sizing: border-box;
+		}
+		label {
+  			/*height: 25px;*/
+  			padding: 5px;
+  			box-sizing: border-box;			
+		}
+		h1 {
+			text-align: center;
+		}
+    body {
+      background-color: azure;
+    }
+	</style>
+</head>
+
+<body>
+<script src="./js/PredictorScript2.js"></script>	
+<h1>Stroke Predictor UI</h1>
+<!-- <button onclick="predictButtonClicked2()">Predict</button> -->
+<br />
+<div id="container">
+<div id="formSpace">
+<form id="newForm" action="#" onsubmit="return validateFormOnSubmit(this);">
+
+  <div class='aligned_form'>		
+
+  <label class="fieldName" for="pIdLabel">Patient Id</label>
+  <input type="text" id="pId" name="pId"><br/><br/>
+
+  <label class="fieldName" for="patientNameLabel">Patient Name</label>
+  <input type="text" id="patientName" name="patientName"><br/><br/>
+
+  <label class="fieldName" for="ageLabel">Age</label>
+  <input type="text" id="age" name="age"><br/><br/>
+
+  <p class="fieldName">Residence</p>
+ 	<input type="radio" id="urbanResidence" name="residence" value="Urban">
+ 	<label for="urban">Urban</label>
+ 	<input type="radio" id="ruralResidence" name="residence" value="Rural">
+ 	<label for="rural">Rural</label>
+  <br /><br />
+
+  <label class="fieldName" for="avgGlucoseLevelLabel">Average Glucose Level</label>
+  <input type="text" id="avgGlucoseLevel" name="avgGlucoseLevel"><br/><br/>
+
+  <label class="fieldName" for="bmiLabel">BMI</label>
+  <input type="text" id="bmiLevel" name="bmiLevel"><br/><br/>
+
+  <p class="fieldName">Gender</p>
+ 	<input type="radio" id="male" name="gender" value="Male">
+ 	<label for="male">Male</label>
+ 	<input type="radio" id="female" name="gender" value="Female">
+ 	<label for="female">Female</label>
+ 	<input type="radio" id="other" name="gender" value="Other">
+ 	<label for="other">Other</label>
+  <br />
+
+  <p class="fieldName">Ever Married</p>
+ 	<input type="radio" id="yesMarried" name="married" value="Yes">
+ 	<label for="married">Yes</label>
+ 	<input type="radio" id="notMarried" name="married" value="No">
+ 	<label for="unmarried">No</label>
+  <br />
+
+  <p class="fieldName">Heart Disease</p>
+ 	<input type="radio" id="yesHeartDisease" name="heartDisease" value="Yes">
+ 	<label for="yesHeartDisease">Yes</label>
+ 	<input type="radio" id="noHeartDisease" name="heartDisease" value="No">
+ 	<label for="noHeartDisease">No</label>
+  <br />
+
+  <p class="fieldName">HyperTension</p>
+ 	<input type="radio" id="yesHyperTension" name="hyperTension" value="Yes">
+ 	<label for="yesHyperTension">Yes</label>
+ 	<input type="radio" id="noHyperTension" name="hyperTension" value="No">
+ 	<label for="noHyperTension">No</label>
+  <br />
+
+  <p class="fieldName">Smoking Status</p>
+ 	<input type="radio" id="neverSmoked" name="smokingStatus" value="neverSmoked">
+ 	<label for="neverSmoked">Never Smoked</label>
+ 	<input type="radio" id="unknown" name="smokingStatus" value="unknown">
+ 	<label for="unknown">Unknown</label>
+ 	<input type="radio" id="formerly smoked" name="smokingStatus" value="formerlySmoked">
+ 	<label for="formerly smoked">Formerly Smoked</label>
+ 	<input type="radio" id="smokes" name="smokingStatus" value="No">
+ 	<label for="smokes">Smokes</label> 	
+  <br />
+
+  <p class="fieldName">Work Type</p>
+ 	<input type="radio" id="private" name="workType" value="Private">
+ 	<label for="private">Private</label>
+ 	<input type="radio" id="selfEmployed" name="workType" value="selfEmployed">
+ 	<label for="selfEmployed">Self Employed</label>
+ 	<input type="radio" id="children" name="workType" value="children">
+ 	<label for="children">Children</label>
+ 	<input type="radio" id="govtJob" name="workType" value="govtJob">
+ 	<label for="govtJob">Govt Job</label>
+ 	<input type="radio" id="neverWorked" name="workType" value="neverWorked">
+ 	<label for="neverWorked">never Worked</label>  	
+  <br />
+
+  <br /><br />
+  <!-- <input type="submit" value="Submit"> -->
+  <input type="button" onclick="validateFormOnSubmit(document.getElementById('newForm'))" value="Submit">
+  <input type="button" onclick="resetForm()" value="Reset">
+  </div>
+</form>
+</div>
+<div class='resultSpace'>
+  <p id="Warning"></p>
+  <br />
+  <div id = "predictionDetails">
+<!--     <p>Patient Id :</p>
+    <p>Patient Name :</p> 
+    <p>Age :</p> 
+    <p>Residence :</p> 
+    <p>Average Glucose Level :</p> 
+    <p>BMI :</p> 
+    <p>Gender :</p> 
+    <p>Ever Married :</p> 
+    <p>Heart Disease :</p> 
+    <p>HyperTension :</p> 
+    <p>Smoking Status :</p>
+    <p>Work Type :</p>
+    <br />
+    <p id = "strokeChance">STROKE CHANCE :</p>    -->
+  </div>  
+</div>
+</div>
+</body>
+</html>

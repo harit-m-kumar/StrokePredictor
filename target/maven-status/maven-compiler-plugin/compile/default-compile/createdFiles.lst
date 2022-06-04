@@ -1,0 +1,12 @@
+bits\sem4\dissertation\web\PatientForStrokeCheckWebController.class
+bits\sem4\dissertation\Utils\WorkTypeUtil.class
+bits\sem4\dissertation\MachineLearningConnector\LinearRegressionConnector.class
+bits\sem4\dissertation\Utils\GenderUtil.class
+bits\sem4\dissertation\repository\PatientForStrokeCheckRepository.class
+bits\sem4\dissertation\Utils\SmokeUtil.class
+bits\sem4\dissertation\StrokePerdictorApp.class
+bits\sem4\dissertation\data\entity\PatientsForStrokeCheck.class
+bits\sem4\dissertation\MachineLearningConnector\LinearRegressionConnector$1.class
+bits\sem4\dissertation\Utils\MarriedUtil.class
+bits\sem4\dissertation\Utils\ResidenceUtil.class
+bits\sem4\dissertation\StrokePerdictorApp$RoomController.class

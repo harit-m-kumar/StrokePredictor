@@ -1,0 +1,1 @@
+INSERT INTO PATIENTS_FOR_STROKE_CHECK VALUES (9048, 55, 218.69, 34.6, "Yes", "Male", 1, 0, "Shiju", "Urban", "formerly smoked", 0, "Private");
